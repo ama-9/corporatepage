@@ -4,7 +4,13 @@ body {
   font-style: normal;
   background-color: #005b70;
   color: #fff;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none; }
+
+body::-webkit-scrollbar {
+  display: none; }
 
 .ie .overlay .overlay_wipe_in {
   width: 0%;
@@ -84,7 +90,6 @@ span.dash {
 @media screen and (min-width: 600px) {
     .overlay .overlay_inner {
       pointer-events: none;
-      display: none;
       width: 100%;
       height: 100vh;
       position: absolute;
@@ -93,31 +98,28 @@ span.dash {
       background-color: #005b70;
       overflow: hidden; }
       .overlay .overlay_inner h1 {
-        position: absolute;
-        top: 30px;
-        right: 0; } }
-      @media screen and (min-width: 600px) and (min-width: 820px) {
-        .overlay .overlay_inner h1 {
-          max-width: 840px;
-          width: calc(45vw + 390px); } }
-      @media screen and (min-width: 600px) and (max-width: 819px) {
-        .overlay .overlay_inner h1 {
-          width: 90vw; } }
-@media screen and (min-width: 600px) {
-        .overlay .overlay_inner h1 img {
-          width: 300px; }
+        display: none; }
     .overlay .overlay_wipe_in {
-      display: block !important;
       animation: wipe_in 0.5s cubic-bezier(0.82, 0.01, 0.32, 0.77);
-      animation-fill-mode: forwards; }
-  @keyframes wipe_in {
-    100% {
-      width: 0; } }
+      animation-fill-mode: forwards; } }
+  @media screen and (min-width: 600px) and (min-width: 820px) {
+    @keyframes wipe_in {
+      0% {
+        transform: translateX(0); }
+      100% {
+        transform: translateX(800px); } } }
+  @media screen and (min-width: 600px) and (max-width: 819px) {
+    @keyframes wipe_in {
+      0% {
+        transform: translateX(0); }
+      100% {
+        transform: translateX(100vw); } } }
+
+@media screen and (min-width: 600px) {
   article {
     margin: 0 auto;
     margin-top: 176px;
-    margin-bottom: 55px;
-    isolation: isolate; } }
+    margin-bottom: 55px; } }
   @media screen and (min-width: 600px) and (min-width: 820px) {
     article {
       max-width: 900px;
@@ -128,6 +130,7 @@ span.dash {
 @media screen and (min-width: 600px) {
     article h1 {
       position: fixed;
+      z-index: 10;
       top: 30px;
       width: 300px; }
       article h1 img {
@@ -155,35 +158,32 @@ span.dash {
     85% {
       transform: translateX(-3px); }
     100% {
-      transform: translateX(0px); } }
+      transform: translateX(0px); } } }
+    @media screen and (min-width: 600px) and (min-width: 820px) {
       article section .title {
-        mix-blend-mode: difference; } }
-      @media screen and (min-width: 600px) and (min-width: 820px) {
-        article section .title {
-          display: flex;
-          align-items: baseline;
-          margin-bottom: 30px; }
-          article section .title h2 {
-            display: inline-block; }
-          article section .title p.yomigana {
-            display: inline-block;
-            margin-left: 10px; } }
-      @media screen and (min-width: 600px) and (max-width: 819px) {
-        article section .title {
-          margin-bottom: 35px; } }
-@media screen and (min-width: 600px) {
+        display: flex;
+        align-items: baseline;
+        margin-bottom: 30px; }
         article section .title h2 {
-          display: inline-block;
-          font-size: 48px;
-          margin-bottom: 15px;
-          letter-spacing: 0.07em;
-          height: 61px; }
-          article section .title h2.en, article section .title h2 .en {
-            letter-spacing: 0.05em; }
+          display: inline-block; }
         article section .title p.yomigana {
-          font-size: 20px; }
+          display: inline-block;
+          margin-left: 10px; } }
+    @media screen and (min-width: 600px) and (max-width: 819px) {
+      article section .title {
+        margin-bottom: 35px; } }
+@media screen and (min-width: 600px) {
+      article section .title h2 {
+        display: inline-block;
+        font-size: 48px;
+        margin-bottom: 15px;
+        letter-spacing: 0.07em;
+        height: 61px; }
+        article section .title h2.en, article section .title h2 .en {
+          letter-spacing: 0.05em; }
+      article section .title p.yomigana {
+        font-size: 20px; }
       article section p.content, article section ul.content, article section ul.content {
-        mix-blend-mode: difference;
         line-height: 1.8;
         font-size: 20px;
         text-align: justify; }

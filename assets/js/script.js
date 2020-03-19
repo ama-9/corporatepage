@@ -19,10 +19,12 @@ $(function() {
   });
 
   function enlargeView() {
-    if ($(window).width() > 1150) {
-      document.body.style.zoom = 1.1;
-    } else {
-      document.body.style.zoom = 1;
+    if ( userAgent.indexOf( 'msie' ) === -1 && userAgent.indexOf( 'trident' ) === -1 ) {
+      if ($(window).width() > 1150) {
+        document.body.style.zoom = 1.1;
+      } else {
+        document.body.style.zoom = 1;
+      }
     }
   }
 
@@ -49,7 +51,6 @@ $(function() {
   // 句読点の余白
 
   if ($('p.content').length) {
-    console.log('true');
     var html = $('p.content').html();
     html = html.replace(/。/g, '<span class="period">。</span>');
     html = html.replace(/、/g, '<span class="comma">、</span>');
