@@ -265,7 +265,7 @@ span.dash {
           font-size: 48px;
           margin-bottom: 15px;
           letter-spacing: 0.07em;
-          height: 61px;
+          min-height: 61px;
 
           &.en, .en {
             letter-spacing: 0.05em;
@@ -413,7 +413,7 @@ span.dash {
           margin-bottom: 7px;
           letter-spacing: 0.08em;
           line-height: 1.3;
-          height: 61px;
+          min-height: 61px;
 
           &.en, .en {
             letter-spacing: 0.06em;
